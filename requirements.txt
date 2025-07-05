@@ -1,0 +1,7 @@
+requests
+beautifulsoup4
+openai
+python-wordpress-xmlrpc
+Flask
+gunicorn
+APScheduler 
