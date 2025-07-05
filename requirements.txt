@@ -1,8 +1,0 @@
-Flask
-gunicorn
-requests
-openai
-python-wordpress-xmlrpc
-apscheduler
-selenium
-webdriver-manager
