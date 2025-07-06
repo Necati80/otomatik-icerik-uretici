@@ -1,0 +1,10 @@
+Flask>=2.2
+gunicorn>=20.1
+requests
+openai>=1.0
+python-wordpress-xmlrpc>=2.3
+apscheduler
+selenium
+webdriver-manager
+chromedriver-autoinstaller
+cloudscraper>=1.2

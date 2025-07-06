@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Sonuçlar - Otomatik İçerik Üretici</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial, sans-serif; background: #f7f7f7; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 32px; }
+        h2 { text-align: center; color: #333; }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 18px; padding: 14px; border-radius: 5px; }
+        .ok { background: #e6ffe6; border: 1px solid #b2e6b2; color: #1a7f1a; }
+        .error { background: #ffeaea; border: 1px solid #e6b2b2; color: #a11a1a; }
+        .back { display: block; margin: 30px auto 0 auto; width: 200px; text-align: center; background: #007bff; color: #fff; text-decoration: none; padding: 12px; border-radius: 4px; font-size: 1.1em; }
+        .back:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sonuçlar</h2>
+        <ul>
+            {% for result in results %}
+                {% if result.status == 'ok' %}
+                    <li class="ok">
+                        <b>{{ result.title }}</b> başarıyla yüklendi. <br>
+                        <small>WordPress Post ID: {{ result.post_id }}</small>
+                    </li>
+                {% else %}
+                    <li class="error">
+                        <b>{{ result.title if result.title else 'Hata' }}</b> yüklenemedi.<br>
+                        <small>{{ result.error }}</small>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <a href="/" class="back">Yeni Görev Başlat</a>
+    </div>
+</body>
+</html> 

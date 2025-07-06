@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otomatik İçerik Üretici</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f7f7f7; margin: 0; padding: 0; }
+        .container { max-width: 500px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 32px; }
+        h2 { text-align: center; color: #333; }
+        label { display: block; margin-top: 18px; color: #444; font-weight: bold; }
+        input, textarea { width: 100%; padding: 10px; margin-top: 6px; border: 1px solid #ccc; border-radius: 4px; font-size: 1em; }
+        button { margin-top: 24px; width: 100%; background: #007bff; color: #fff; border: none; padding: 12px; border-radius: 4px; font-size: 1.1em; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .note { font-size: 0.95em; color: #888; margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Otomatik İçerik Üretici</h2>
+        <form method="post">
+            <label for="rss_url">RSS/Feed Adresi</label>
+            <input type="url" id="rss_url" name="rss_url" required placeholder="https://.../feed">
+
+            <label for="openai_key">OpenAI API Key</label>
+            <input type="text" id="openai_key" name="openai_key" required placeholder="sk-...">
+
+            <label for="post_count">Kaç Yazı Üretilecek?</label>
+            <input type="number" id="post_count" name="post_count" min="1" max="20" value="3" required>
+
+            <label for="wp_url">WordPress Site Adresi</label>
+            <input type="url" id="wp_url" name="wp_url" required placeholder="https://siteadresiniz.com">
+            <div class="note">Sadece ana domain girin, <b>xmlrpc.php</b> eklemenize gerek yok.</div>
+
+            <label for="wp_user">WordPress Kullanıcı Adı</label>
+            <input type="text" id="wp_user" name="wp_user" required>
+
+            <label for="wp_pass">WordPress Şifre</label>
+            <input type="password" id="wp_pass" name="wp_pass" required>
+
+            <label for="prompt_template">Prompt Şablonu</label>
+            <textarea id="prompt_template" name="prompt_template" rows="2" required>{title} için bana bir tanıtım yazısı yaz.</textarea>
+            <div class="note">Başlık için <b>{title}</b> kullanabilirsin.</div>
+
+            <button type="submit">Başlat</button>
+        </form>
+    </div>
+</body>
+</html> 
